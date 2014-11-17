@@ -5,13 +5,13 @@
 	<div class="list-group">
 		<a data-ng-repeat="party in parties" data-ng-href="#!/parties/{{party._id}}" class="list-group-item">
 			<small class="list-group-item-text">
-				Posted on
-				<span data-ng-bind="party.created | date:'mediumDate'"></span>
+				Planned for
+				<span data-ng-bind="party.event_date | date:'mediumDate'"></span>
 				by
 				<span data-ng-bind="party.user.displayName"></span>
 			</small>
-			<h4 class="list-group-item-heading" data-ng-bind="party.title"></h4>
-			<p class="list-group-item-text" data-ng-bind="party.content"></p>
+			<h4 class="list-group-item-heading" data-ng-bind="party.event_name"></h4>
+			<p class="list-group-item-text" data-ng-bind="party.description"></p>
 		</a>
 	</div>
 	<div class="alert alert-warning text-center" data-ng-if="parties.$resolved && !parties.length">

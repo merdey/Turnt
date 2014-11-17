@@ -1,26 +1,35 @@
 <section data-ng-controller="PartiesController" data-ng-init="findOne()">
 	<div class="page-header">
-		<h1>Edit Parties</h1>
+		<h1>Edit Party</h1>
 	</div>
 	<div class="col-md-12">
 		<form name="partyForm" class="form-horizontal" data-ng-submit="update(partyForm.$valid)" novalidate>
 			<fieldset>
-				<div class="form-group" ng-class="{ 'has-error' : submitted && partyForm.title.$invalid}">
-					<label class="control-label" for="title">Title</label>
+				<div class="form-group" ng-class="{ 'has-error' : submitted && partyForm.event_name.$invalid}">
+					<label class="control-label" for="event_name">Event Name</label>
 					<div class="controls">
-						<input name="title" type="text" data-ng-model="party.title" id="title" class="form-control" placeholder="Title" required>
+						<input name="event_name" type="text" data-ng-model="party.event_name" id="event_name" class="form-control" placeholder="Event Name" required>
 					</div>
-					<div ng-show="submitted && partyForm.title.$invalid" class="help-block">
-						<p ng-show="partyForm.title.$error.required" class="text-danger">Title is required</p>
+					<div ng-show="submitted && partyForm.event_name.$invalid" class="help-block">
+						<p ng-show="partyForm.event_name.$error.required" class="text-danger">Event name is required</p>
 					</div>
 				</div>
-				<div class="form-group" ng-class="{ 'has-error' : submitted && partyForm.content.$invalid}">
-					<label class="control-label" for="content">Content</label>
+				<div class="form-group" ng-class="{ 'has-error' : submitted && partyForm.description.$invalid}">
+					<label class="control-label" for="description">Description</label>
 					<div class="controls">
-						<textarea name="content" data-ng-model="party.content" id="content" class="form-control" cols="30" rows="10" placeholder="Content" required></textarea>
+						<textarea name="description" data-ng-model="party.description" id="description" class="form-control" cols="30" rows="10" placeholder="Description" required></textarea>
 					</div>
-					<div ng-show="submitted && partyForm.content.$invalid" class="help-block">
-						<p ng-show="partyForm.content.$error.required" class="text-danger">Content is required</p>
+					<div ng-show="submitted && partyForm.description.$invalid" class="help-block">
+						<p ng-show="partyForm.description.$error.required" class="text-danger">Description is required</p>
+					</div>
+				</div>
+				<div class="form-group" ng-class="{ 'has-error' : submitted && partyForm.cost.$invalid}">
+					<label class="control-label" for="cost">Cost</label>
+					<div class="controls">
+						<input name="cost" type="number" min="0" data-ng-model="party.cost" id="cost" class="form-control" placeholder="Cost" required>
+					</div>
+					<div ng-show="submitted && partyForm.cost.$invalid" class="help-block">
+						<p ng-show="partyForm.cost.$error.required" class="text-danger">Cost is required</p>
 					</div>
 				</div>
 				<div class="form-group">

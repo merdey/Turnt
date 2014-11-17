@@ -7,20 +7,24 @@ var mongoose = require('mongoose'),
 	Schema = mongoose.Schema;
 
 /**
- * Article Schema
+ * Party Schema
  */
 var PartySchema = new Schema({
 	created: {
 		type: Date,
 		default: Date.now
 	},
-	title: {
+	event_date: {
+		type: Date,
+		default: Date.now
+	},
+	event_name: {
 		type: String,
 		default: '',
 		trim: true,
-		required: 'Title cannot be blank'
+		required: 'Event name cannot be blank'
 	},
-	content: {
+	description: {
 		type: String,
 		default: '',
 		trim: true
@@ -28,6 +32,10 @@ var PartySchema = new Schema({
 	user: {
 		type: Schema.ObjectId,
 		ref: 'User'
+	},
+	cost: {
+		type: Number,
+		default: 0
 	}
 });
 
